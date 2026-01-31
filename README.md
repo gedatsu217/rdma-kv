@@ -1,5 +1,5 @@
 # RDMA-KV
-A simple RDMA-based key-value store. This is a toy project to play with RDMA. 
+A simple KV-Store implementation using RDMA (Soft-RoCE). This is a toy project to play with RDMA.
 
 ## Setup and Build
 ```bash

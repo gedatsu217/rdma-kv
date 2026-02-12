@@ -2,8 +2,9 @@
 #include <infiniband/verbs.h>
 #include <stddef.h>
 
+#define TOTAL_SIZE (512ull*1024*1024)
 #define SLOT_SIZE 1024
-#define NUM_SLOTS (512*1024)
+#define NUM_SLOTS (TOTAL_SIZE / SLOT_SIZE)
 
 struct kv_context {
     struct rdma_event_channel *ec;

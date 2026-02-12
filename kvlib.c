@@ -58,6 +58,10 @@ struct kv_context* kv_init_server(char* ip_addr) {
     ctx->buffer = (char*)malloc(SLOT_SIZE * NUM_SLOTS);
     memset(ctx->buffer, 0, SLOT_SIZE * NUM_SLOTS);
     ctx->mr = ibv_reg_mr(ctx->pd, ctx->buffer, SLOT_SIZE * NUM_SLOTS, IBV_ACCESS_LOCAL_WRITE | IBV_ACCESS_REMOTE_WRITE | IBV_ACCESS_REMOTE_READ);
+    if (!ctx->mr) {
+        perror("ibv_reg_mr failed");
+        return NULL;
+    }
 
     struct ibv_qp_init_attr qp_attr = {
         .cap = { .max_send_wr = 10, .max_recv_wr = 10, .max_send_sge = 1, .max_recv_sge = 1 },

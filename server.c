@@ -7,5 +7,7 @@ int main(int argc, char** argv) {
         return -1;
     }
     kv_init_server(argv[1]);
+    printf("Server initialized. Waiting for clients...\n");
+    while(1);
     return 0;
 }

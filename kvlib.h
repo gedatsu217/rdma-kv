@@ -3,7 +3,7 @@
 #include <stddef.h>
 
 #define SLOT_SIZE 1024
-#define NUM_SLOTS 1024
+#define NUM_SLOTS (512*1024)
 
 struct kv_context {
     struct rdma_event_channel *ec;
